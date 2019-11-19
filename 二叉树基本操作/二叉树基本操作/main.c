@@ -66,6 +66,19 @@ void yezi(BinTree T)
     }
 }
 
+int Hight(BinTree T)
+{
+    int HL,HR,MaxH;
+    if(T)
+    {
+        HL=Hight(T->Left);
+        HR=Hight(T->Right);
+        MaxH=HL>HR?HL :HR;
+        return (MaxH+1);
+    }
+    else
+        return 0;
+}
 int main()
 {
     BinTree T=CreateBinTree();
@@ -74,6 +87,8 @@ int main()
     zhongxu(T);
     printf("\n");
     yezi(T);
+    printf("\n");
+    printf("%d",Hight(T));
     printf("\n");
     return 0;
 }
